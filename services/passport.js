@@ -30,7 +30,7 @@ const localLogin = new LocalStratagy(localOptions, function (
 });
 
 const jwtOptions = {
-  jwtFromRequest: pass.ExtractJwt.fromHeader("authorization"),
+  jwtFromRequest: pass.ExtractJwt.fromAuthHeaderAsBearerToken("Authorization"),
   secretOrKey: config.secret,
 };
 

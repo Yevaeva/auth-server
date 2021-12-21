@@ -6,14 +6,15 @@ import router from "./router.js";
 import mongoose from "mongoose";
 import passport from "passport";
 import "./services/passport.js";
+import cors from "cors";
 
 mongoose.connect("mongodb://localhost:27017");
 
 const app = express();
 app.use(morgan("combines"));
+app.use(cors());
 app.use(bodyParser.json({ type: "*/*" }));
 app.use(passport.initialize());
-// app.use(passport.session());
 router(app);
 
 const port = process.env.PORT || 3001;
